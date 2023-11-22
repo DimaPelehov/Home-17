@@ -5,18 +5,26 @@ function trimString(str, maxLength) {
   }
 
   let long = str.length;
+
   let trueLong = str.slice(0, maxLength);
-  let falseLong = str.slice(maxLength);
-  let fullLong = `${trueLong}${falseLong}`;
+
+  let falseLong = "...";
+
   if (long > maxLength) {
-    return fullLong.replace(falseLong, "...");
+    return `${trueLong}${falseLong}`;
   } else {
-    return fullLong;
+    return trueLong;
   }
 }
 
 console.log(trimString(prompt("enter text"), 8));
 
+// Варіант коротше-----
+// function truncate(str, maxlength) {
+//   return str.length > maxlength ? str.slice(0, maxlength) + "…" : str;
+// }
+
+// console.log(truncate(prompt("enter text"), 8));
 // ------------------ДЗ 17.2-----------------------
 
 // -----Варіант 1 (довший)---------
@@ -51,6 +59,8 @@ function checkRandNumb(min, max) {
 
   if (number % 2 === 0) {
     return "Число парне";
+  } else if (number === 0) {
+    return "Число 0, спробуйте ще раз";
   } else {
     return "Число непарне";
   }
@@ -63,7 +73,7 @@ console.log(
   )
 );
 
-// ------Варіант 3 (дфапазон йде від 0 до max)----
+// ------Варіант 3 (діапазон йде від 0 до max)----
 
 // function checkRandom(max) {
 //   let number = Math.floor(Math.random() * max);
